@@ -61,7 +61,6 @@ int main()
             Step 4.5.2: close the write end of the pipe.
             Step 4.5.3: store the output of the child.
             Step 4.5.4: move on to the next command.
-    Step 5: free the dynamic array.
  */
 void process_cmd(char *cmdline)
 {

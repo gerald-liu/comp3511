@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
+//#include <sys/wait.h> // In C99 and later 
 
 // Assume that each command line has at most 256 characters (including NULL)
 #define MAX_CMDLINE_LEN 256
@@ -44,7 +45,7 @@ int main()
     TODO: Clearly explain how you implement process_cmd in point form. For example:
 
     Step 1: separate the pipe segments and store them in an array.
-    Step 2: separate each command segment into a vector of arguments.
+    Step 2: separate each command segment into a vector of arguments and store the commands in an array.
     Step 3: if the first command is the built-in exit command, exit the program.
     Step 4: loop through the commands and execute them one by one.
         Step 4.1: create the pipe.
@@ -155,7 +156,7 @@ int get_cmd_line(char *cmdline)
     return 0;
 }
 
-// return argc and argv
+// get argv and numTokens
 void **tokenize(char **argv, char *line, int *numTokens, char *delimiter)
 {
     int argc = 0;
